@@ -8,7 +8,7 @@ namespace WhyFSharp.CSharp
     {
         static void Main(string[] args)
         {
-            WhyFSharp.FSharp.Api.List.FoldTextToOneLineV4
+            //WhyFSharp.FSharp.Api.List.FoldTextToOneLineV4();
         }
 
         public static string FoldTextToOneLineV1(string s, int maxLines = 8, string foldSeperator = ", ")

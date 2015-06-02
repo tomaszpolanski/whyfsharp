@@ -15,7 +15,7 @@ type List() =
                 | None -> None
                 | Some z' -> Some <| f x' y' z'
     
-    static let foldTextToOneLine (multiLineString : string) maxLines foldSeperator = 
+    static member FoldTextToOneLineV3 (multiLineString : string) maxLines foldSeperator = 
         multiLineString
         |> split [| '\n'; ','; ';' |]
         |> Array.map trim
@@ -23,9 +23,8 @@ type List() =
         |> Array.truncate maxLines
         |> Array.fold (fun f s -> f + foldSeperator + s) ""
     
-    static member FoldTextToOneLineV3 arg = arg |||> foldTextToOneLine
 
-    static member FoldTextToOneLineV4(?multiLineString, ?maxLines, ?foldSeperator) = 
-        match lift3 foldTextToOneLine multiLineString maxLines foldSeperator with
+    static member FoldTextToOneLineV4 (?multiLineString, ?maxLines, ?foldSeperator) = 
+        match lift3 List.FoldTextToOneLineV3 multiLineString maxLines foldSeperator with
         | Some s -> s
         | None -> ""
