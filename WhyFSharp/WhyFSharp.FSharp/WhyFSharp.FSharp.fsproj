@@ -51,6 +51,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Tutorial.fsx" />
+    <Compile Include="File1.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WhyFSharp.FSharp.Api\WhyFSharp.FSharp.Api.fsproj">
+      <Name>WhyFSharp.FSharp.Api</Name>
+      <Project>{801906d2-9d66-4e3d-b75e-91c4600e30c3}</Project>
+      <Private>True</Private>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
