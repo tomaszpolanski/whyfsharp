@@ -19,3 +19,16 @@ module ``Extension methods`` =
     let repeat count str = str |> List.replicate count |> List.fold (+) ""
 
     "Na" |> repeat 7 |> (+) <| " Batman!"
+
+module ``Primitive obsession`` = 
+    
+    let test = CustomerId.create "asdfasdf"
+
+    let repeat count str = str |> List.replicate count |> List.fold (+) ""
+    let test2 = "Na" |> repeat 7 
+                     |> ((+) " Batman!" )
+                     |> CustomerId.create 
+
+    match test with
+    | Some id -> printfn "%A" id
+    | None -> printfn "Invalid id"
