@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 
+
 namespace WhyFSharp.CSharp
 {
     class Program
@@ -21,7 +22,24 @@ namespace WhyFSharp.CSharp
             //Console.WriteLine(test2);
             //ComparePoints();
             //PrintAsync();
-            Console.ReadLine();
+
+            var t = Enumerable.Empty<int>().Max(a => a, 0).ToString();
+            //       Console.ReadLine();
+
+            var c = CustomerId.Create("Na".Repeat(7) + " Batman!");
+            if (c.HasValue)
+            {
+                DoSomethingWithCustomerId(c.Get());
+            }
+            else
+            {
+                Console.WriteLine("Invalid customer");
+            }
+        }
+
+        private static void DoSomethingWithCustomerId( CustomerId c)
+        {
+            Console.WriteLine(c);
         }
 
 

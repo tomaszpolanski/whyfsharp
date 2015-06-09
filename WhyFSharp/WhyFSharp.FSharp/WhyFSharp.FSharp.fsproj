@@ -38,28 +38,6 @@
     <DocumentationFile>bin\Release\WhyFSharp.FSharp.XML</DocumentationFile>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="mscorlib" />
-    <Reference Include="FSharp.Core, Version=$(TargetFSharpCoreVersion), Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Numerics" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Tutorial.fsx" />
-    <Compile Include="File1.fs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\WhyFSharp.FSharp.Api\WhyFSharp.FSharp.Api.fsproj">
-      <Name>WhyFSharp.FSharp.Api</Name>
-      <Project>{801906d2-9d66-4e3d-b75e-91c4600e30c3}</Project>
-      <Private>True</Private>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
   </PropertyGroup>
@@ -76,6 +54,26 @@
     </Otherwise>
   </Choose>
   <Import Project="$(FSharpTargetsPath)" />
+  <ItemGroup>
+    <Compile Include="Tutorial.fsx" />
+    <None Include="FSharpCheatSheet.fsx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="FSharp.Core, Version=$(TargetFSharpCoreVersion), Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <ProjectReference Include="..\WhyFSharp.FSharp.Api\WhyFSharp.FSharp.Api.fsproj">
+      <Name>WhyFSharp.FSharp.Api</Name>
+      <Project>{801906d2-9d66-4e3d-b75e-91c4600e30c3}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
