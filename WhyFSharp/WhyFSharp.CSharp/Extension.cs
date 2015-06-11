@@ -11,7 +11,6 @@ namespace WhyFSharp.CSharp
             return string.Concat(Enumerable.Repeat(str, count));
         }
 
-
         public static TResult Max<TSource, TResult>(this IEnumerable<TSource> source, Func<TSource, TResult> selector, TResult defaultValue)
         {
             return source.Any() ? source.Max(selector) : defaultValue;

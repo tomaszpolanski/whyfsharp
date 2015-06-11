@@ -40,10 +40,5 @@
         {
             return X ^ Y;
         }
-
-        public override string ToString()
-        {
-            return string.Format("X = {0};\nY = {1}", X, Y);
-        }
     }
 }

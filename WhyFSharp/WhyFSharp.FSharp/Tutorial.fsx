@@ -24,11 +24,20 @@ module ``Primitive obsession`` =
     
     let test = CustomerId.create "asdfasdf"
 
-    let repeat count str = str |> List.replicate count |> List.fold (+) ""
+    let repeat count str = str |> List.replicate count 
+                               |> List.fold (+) ""
     let test2 = "Na" |> repeat 7 
-                     |> ((+) " Batman!" )
+                     |> (+) <| " Batman!" 
                      |> CustomerId.create 
 
     match test with
     | Some id -> printfn "%A" id
     | None -> printfn "Invalid id"
+
+    let str = "jskfasdfasdsk"
+    str |> Option.ofObj
+        |> Option.filter (String.length >> (<) 3)        
+        |> Option.map (String.replicate 2)
+        |> function
+            | Some s -> printfn "Long string: %s" s
+            | None -> printfn "No string there"

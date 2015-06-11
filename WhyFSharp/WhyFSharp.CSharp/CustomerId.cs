@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WhyFSharp.CSharp
+﻿namespace WhyFSharp.CSharp
 {
     public class CustomerId
     {
@@ -21,6 +15,16 @@ namespace WhyFSharp.CSharp
                     ? (Option<CustomerId>) new Some<CustomerId>(new CustomerId(id))
                     : new None<CustomerId>();
         }
+
+        #region V2
+        public static Option<CustomerId> CreateV2(string id)
+        {
+            return Option<string>.OfObject(id)
+                                 .Where(string.IsNullOrEmpty)
+                                 .Where(str => str.Length == 22)
+                                 .Select(str => new CustomerId(str));
+        }
+        #endregion
 
 
         public override string ToString()

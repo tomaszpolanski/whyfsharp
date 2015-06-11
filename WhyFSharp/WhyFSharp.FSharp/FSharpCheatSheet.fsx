@@ -172,9 +172,8 @@ module Options =
     let option = 
         list
         |> List.tryFind ((<>) 3)
-        |> Option.map ((*) 3)
+        |> Option.map ((*) 2)
         |> Option.filter (fun x -> x % 2 = 0)
-    
-    match option with
-    | Some value -> printfn "Found: %A" value
-    | None -> printfn "Did not found"
+        |> function
+            | Some value -> printfn "Found: %A" value
+            | None -> printfn "Did not found"
