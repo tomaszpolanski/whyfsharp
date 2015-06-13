@@ -40,5 +40,23 @@
         {
             return X ^ Y;
         }
+
+        public static bool operator ==(TwoDPointC a, TwoDPointC b)
+        {
+            if (ReferenceEquals(a, b))
+            {
+                return true;
+            }
+            if (((object)a == null) || ((object)b == null))
+            {
+                return false;
+            }
+            return a.X == b.X && a.Y == b.Y;
+        }
+
+        public static bool operator !=(TwoDPointC a, TwoDPointC b)
+        {
+            return !(a == b);
+        }
     }
 }
