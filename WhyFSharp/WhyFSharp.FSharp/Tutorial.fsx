@@ -16,25 +16,19 @@ module ``Extension methods`` =
 
     [2;3;1;2345;12;54;7] |> max id 0
 
-    let repeat count str = str |> List.replicate count |> List.fold (+) ""
+    let repeat count =  List.replicate count >> List.fold (+) ""
 
-    "Na" |> repeat 7 |> (+) <| " Batman!"
+    "Na" |> repeat 7 |> (+) <| " Batman!"             
 
 module ``Primitive obsession`` = 
     
-    let test = CustomerId.create "asdfasdf"
-
-    let repeat count str = str |> List.replicate count 
-                               |> List.fold (+) ""
-    let test2 = "Na" |> repeat 7 
-                     |> (+) <| " Batman!" 
-                     |> CustomerId.create 
+    let test = CustomerId.create "RandomKey"
 
     match test with
     | Some id -> printfn "%A" id
     | None -> printfn "Invalid id"
 
-    let str = "jskfasdfasdsk"
+    let str = "1"
     str |> Option.ofObj
         |> Option.filter (String.length >> (<) 3)        
         |> Option.map (String.replicate 2)

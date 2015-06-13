@@ -11,23 +11,21 @@ namespace WhyFSharp.CSharp
     {
         static void Main(string[] args)
         {
-
             var test = new Model.TwoDPointF(1,2);
             var test2 = new TwoDPointC(1, 2);
 
-            //Console.WriteLine(FoldTextToOneLineV1("kalsjdfosdaoijsdlkdsjfkl sdklfjal,sdjkflsadjflkadf,asdfasdf,dfsafd,        ,sdf", 2, ":)"));
-            //Console.WriteLine(FoldTextToOneLineV2("kalsjdfosdaoijsdlkdsjfkl sdklfjal,sdjkflsadjflkadf,asdfasdf,dfsafd,        ,sdf", 2, ":)"));
-
-            //Console.WriteLine(test);
-            //Console.WriteLine(test2);
-            //ComparePoints();
-            //PrintAsync();
-
-            var t = Enumerable.Empty<int>().Max(a => a, 0).ToString();
-
+            var test11 = Enumerable.Range(0, 100).Max(num => num, 0);
         }
 
         #region Working with lists
+
+        private static void FoldText()
+        {
+            const string text = "This is some text,       this is another line,,yet another,,,";
+            var foldedV1 = FoldTextToOneLineV1(text, 5, ":) ");
+            var foldedV2 = FoldTextToOneLineV2(text, 5, ":) ");
+        }
+
         private static string FoldTextToOneLineV1(string s, int maxLines, string foldSeperator)
         {
             List<string> lines = new List<string>();
@@ -66,6 +64,7 @@ namespace WhyFSharp.CSharp
                                   .Aggregate((first, second) => first + foldSeperator + second);
         }
         #endregion
+
         #region Primitive obsession - part 1
         private static void PrimitiveObsessionBasic()
         {
@@ -103,14 +102,11 @@ namespace WhyFSharp.CSharp
             }
         }
 
-
-
         private static void DoSomethingWithCustomerId( CustomerId c)
         {
             Console.WriteLine(c);
         }
         #endregion
-
 
         #region F# async
         private static async void PrintAsync()
@@ -127,31 +123,5 @@ namespace WhyFSharp.CSharp
             }
         }
         #endregion
-
-        private static void ComparePoints()
-        {
-            var pointC1 = new TwoDPointC(1, 2);
-            var pointC2 = new TwoDPointC(1, 2);
-            var pointC3 = new TwoDPointC(1, 3);
-
-            Console.WriteLine(CompareObjects(pointC1, pointC1));
-            Console.WriteLine(CompareObjects(pointC1, pointC2));
-            Console.WriteLine(CompareObjects(pointC1, pointC3));
-
-            var pointF1 = new Model.TwoDPointF(1, 2);
-            var pointF2 = new Model.TwoDPointF(1, 2);
-            var pointF3 = new Model.TwoDPointF(1, 3);
-
-            Console.WriteLine(CompareObjects(pointF1, pointF1));
-            Console.WriteLine(CompareObjects(pointF1, pointF2));
-            Console.WriteLine(CompareObjects(pointF1, pointF3));
-        }
-
-        private static string CompareObjects(object first, object second)
-        {
-            return string.Format("{0} \n{1} \nare equal? {2}", first, second, first.Equals(second));
-        }
-
-
     }
 }
