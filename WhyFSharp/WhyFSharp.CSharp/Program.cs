@@ -14,7 +14,6 @@ namespace WhyFSharp.CSharp
             var test = new Model.TwoDPointF(1,2);
             var test2 = new TwoDPointC(1, 2);
 
-            var test11 = Enumerable.Range(0, 100).Max(num => num, 0);
         }
 
         #region Working with lists
@@ -66,6 +65,26 @@ namespace WhyFSharp.CSharp
         #endregion
 
         #region Primitive obsession - part 1
+        private static void PrimitiveObsessionLessBasic()
+        {
+            var c = CustomerId.Create("@#$%FTG%$%^GTVVTGFEDRXR");
+            if (c.HasValue)
+            {
+                DoSomethingWithCustomerId(c.Get());
+            }
+            else
+            {
+                Console.WriteLine("Invalid customer");
+            }
+        }
+
+        private static void DoSomethingWithCustomerId( CustomerId c)
+        {
+            Console.WriteLine(c);
+        }
+        #endregion
+
+        #region Primitive obsession - part 2
         private static void PrimitiveObsessionBasic()
         {
             string testString = "sjfjfmdf";
@@ -88,25 +107,6 @@ namespace WhyFSharp.CSharp
         }
         #endregion
 
-        #region Primitive obsession - part 2
-        private static void PrimitiveObsessionLessBasic()
-        {
-            var c = CustomerId.Create("Na".Repeat(7) + " Batman!");
-            if (c.HasValue)
-            {
-                DoSomethingWithCustomerId(c.Get());
-            }
-            else
-            {
-                Console.WriteLine("Invalid customer");
-            }
-        }
-
-        private static void DoSomethingWithCustomerId( CustomerId c)
-        {
-            Console.WriteLine(c);
-        }
-        #endregion
 
         #region F# async
         private static async void PrintAsync()
