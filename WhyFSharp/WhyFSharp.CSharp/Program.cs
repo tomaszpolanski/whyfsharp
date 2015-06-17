@@ -11,8 +11,6 @@ namespace WhyFSharp.CSharp
     {
         static void Main(string[] args)
         {
-            var test = new Model.TwoDPointF(1,2);
-            var test2 = new TwoDPointC(1, 2);
 
         }
 
@@ -67,15 +65,7 @@ namespace WhyFSharp.CSharp
         #region Primitive obsession - part 1
         private static void PrimitiveObsessionLessBasic()
         {
-            var c = CustomerId.Create("@#$%FTG%$%^GTVVTGFEDRXR");
-            if (c.HasValue)
-            {
-                DoSomethingWithCustomerId(c.Get());
-            }
-            else
-            {
-                Console.WriteLine("Invalid customer");
-            }
+
         }
 
         private static void DoSomethingWithCustomerId( CustomerId c)
@@ -89,38 +79,12 @@ namespace WhyFSharp.CSharp
         {
             string testString = "sjfjfmdf";
             var opStr = GetLongString(testString);
-            if (opStr.HasValue)
-            {
-                Console.WriteLine("Long string: " + opStr.Get());
-            }
-            else
-            {
-                Console.WriteLine("No string there");
-            }
+
         }
 
         private static Option<string> GetLongString(string str)
         {
-            return Option<string>.OfObject(str)
-                .Where(s => s.Length > 3)
-                .Select(s => s + s);
-        }
-        #endregion
-
-
-        #region F# async
-        private static async void PrintAsync()
-        {
-            CancellationTokenSource cts = new CancellationTokenSource(1000);
-            try
-            {
-                string test = await Async.DelayPrint(5000, "Finished", cts.Token);
-                Console.WriteLine(test);
-            }
-            catch (OperationCanceledException)
-            {
-                Console.WriteLine("I've been cancelled!");
-            }
+            throw new Exception();
         }
         #endregion
     }
