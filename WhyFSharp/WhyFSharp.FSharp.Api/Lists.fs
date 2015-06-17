@@ -3,7 +3,7 @@
 let private split l (s : string) = s.Split(l)
 let private trim (s : string) = s.Trim()
 
-let FoldTextToOneLineV3 (multiLineString : string) maxLines foldSeperator = 
+let FoldTextToOneLineV3 multiLineString maxLines foldSeperator = 
     multiLineString
     |> split [| '\n'; ','; ';' |]
     |> Array.map trim
