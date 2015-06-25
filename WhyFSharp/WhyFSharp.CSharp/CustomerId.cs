@@ -20,7 +20,6 @@
         public static Option<CustomerId> CreateV2(string id)
         {
             return Option<string>.OfObject(id)
-                                 .Where(string.IsNullOrEmpty)
                                  .Where(str => str.Length == 22)
                                  .Select(str => new CustomerId(str));
         }
